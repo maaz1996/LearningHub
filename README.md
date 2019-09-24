@@ -1,4 +1,1 @@
-backend version1
-
-npm install
-npm run start
+Backend version1
