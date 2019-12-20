@@ -1,6 +1,11 @@
 const router = require("express-promise-router")();
 const passport = require("passport");
-const { signupValidateBody, signupSchemas,signinValidateBody, signinSchemas } = require("../../../validator/authValidate");
+const {
+  signupValidateBody,
+  signupSchemas,
+  signinValidateBody,
+  signinSchemas
+} = require("../../../validator/authValidate");
 const UserController = require("../../../controller/user/user.auth.controller");
 /*
 NOTE: 
@@ -21,6 +26,5 @@ router
     passport.authenticate("user-local", { session: false }),
     UserController.signin
   );
-
 
 module.exports = router;
