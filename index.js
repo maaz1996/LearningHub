@@ -5,9 +5,9 @@ const app = express();
 const mongoose = require("mongoose");
 mongoose.set("useCreateIndex", true);
 const config = require("./config/index");
-
+console.log(`${config["dbname"]}`);
 db = mongoose.connect(
-  "mongodb+srv://admin:dbadmin@cluster0-dweca.mongodb.net/test?retryWrites=true&w=majority",
+  `mongodb+srv://'${config["username"]}':'${config["password"]}'@cluster0.jlqxk.mongodb.net/'${config["dbname"]}'?retryWrites=true&w=majority`,
   { useNewUrlParser: true }
 );
 
@@ -49,5 +49,7 @@ const userActionRoutes = require("./routes/user/action/user");
 app.use("/user/action", userActionRoutes);
 
 app.listen(config["port"], () => {
-  console.log(`Server listening on port: ${config["port"]}`);
+  console.log(
+    `Mode: ${config["server"]},Server listening on port: ${config["port"]}`
+  );
 });
