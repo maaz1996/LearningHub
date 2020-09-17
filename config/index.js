@@ -3,7 +3,7 @@ dotenv.config();
 module.exports = {
   JWT_SECRET: "authentication",
   port: 4000,
-  username: process.env.USERNAME,
+  userid: process.env.USERID,
   password: process.env.PASSWORD,
   dbname: process.env.DBNAME,
   server: process.env.APP_NAME,

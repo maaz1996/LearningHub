@@ -7,7 +7,7 @@ mongoose.set("useCreateIndex", true);
 const config = require("./config/index");
 
 db = mongoose.connect(
-  `mongodb+srv://'${config["username"]}':'${config["password"]}'@'${config["cluster"]}'/'${config["dbname"]}'?retryWrites=true&w=majority`,
+  `mongodb+srv://${config["userid"]}:${config["password"]}@${config["cluster"]}/${config["dbname"]}?retryWrites=true&w=majority`,
   { useNewUrlParser: true }
 );
 
