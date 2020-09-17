@@ -25,6 +25,13 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use("/", (req, res) => {
+  res.status(200).json({
+    status: 200,
+    result: "Hello World, People",
+  });
+});
+
 // User Routes
 const userRoute = require("./routes/user/auth/userAuth");
 app.use("/user", userRoute);
