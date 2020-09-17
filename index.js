@@ -44,7 +44,7 @@ app.use("/admin", adminAuthRoutes);
 const adminActionsRoutes = require("./routes/admin/actions/adminAction");
 app.use("/admin/action", adminActionsRoutes);
 
-//user personal info routes
+//user action routes
 const userActionRoutes = require("./routes/user/action/user");
 app.use("/user/action", userActionRoutes);
 
