@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 //CORS Headers
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -38,8 +38,8 @@ const adminActionsRoutes = require("./routes/admin/actions/adminAction");
 app.use("/admin/action", adminActionsRoutes);
 
 //user personal info routes
-const personalRoutes = require("./routes/user/action/user");
-app.use("/personal", personalRoutes);
+const userActionRoutes = require("./routes/user/action/user");
+app.use("/user/action", userActionRoutes);
 
 app.listen(config["port"], () => {
   console.log(`Server listening on port: ${config["port"]}`);
