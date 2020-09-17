@@ -7,4 +7,5 @@ module.exports = {
   password: process.env.PASSWORD,
   dbname: process.env.DBNAME,
   server: process.env.APP_NAME,
+  cluster: process.env.CLUSTER,
 };
