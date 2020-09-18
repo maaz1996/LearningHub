@@ -21,6 +21,12 @@ db = mongoose.connect(
   options,
   function (error) {
     if (error) console.log(error);
+    else console.log("connected to atlas mongo");
+  } || `mongodb://localhost:27017/${config["dbname"]}`,
+  options,
+  function (error) {
+    if (error) console.log(error);
+    else console.log("connected to local mongodb");
   }
 );
 
@@ -38,7 +44,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).json({
     status: 200,
     result: "Hello World, People",

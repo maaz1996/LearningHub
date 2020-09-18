@@ -7,27 +7,27 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    lowercase: true
+    lowercase: true,
   },
 
   password: {
     type: String,
-    required: true
+    required: true,
   },
   companyname: {
     type: String,
     required: true,
-    unique:false,
-    lowercase: true
+    unique: false,
+    lowercase: true,
   },
   userid: {
     type: String,
     required: true,
-    unique: true
-  }
+    unique: true,
+  },
 });
 
-userSchema.pre("save", async function(next) {
+userSchema.pre("save", async function (next) {
   try {
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(this.password, salt);
@@ -37,7 +37,7 @@ userSchema.pre("save", async function(next) {
     next(error);
   }
 });
-userSchema.methods.isValidPassword = async function(newPassword) {
+userSchema.methods.isValidPassword = async function (newPassword) {
   try {
     return await bcrypt.compare(newPassword, this.password);
   } catch (error) {

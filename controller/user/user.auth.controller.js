@@ -3,13 +3,13 @@ const User = require("../../models/user/auth");
 const userServices = require("../../services/user.services.auth");
 require("../../validator/passport");
 const { JWT_SECRET } = require("../../config");
-signToken = user => {
+signToken = (user) => {
   return JWT.sign(
     {
       iss: "Cool",
       sub: user._id,
       iat: new Date().getTime(),
-      exp: new Date().setTime(new Date().getTime() + 1200000)
+      exp: new Date().setTime(new Date().getTime() + 1200000),
     },
     JWT_SECRET
   );
@@ -27,8 +27,8 @@ module.exports = {
       res.status(200).send({
         status: 400,
         message: {
-          result: "User doesn't exist"
-        }
+          result: "User doesn't exist",
+        },
       });
     } else {
       const newUser = new User({ email, password, companyname, userid });
@@ -40,8 +40,8 @@ module.exports = {
           token: token,
           firstName: response[0].first_name_personal_information,
           lastName: response[0].last_name_personal_information,
-          result: "IMPLEMENTED "
-        }
+          result: "IMPLEMENTED ",
+        },
       });
     }
   },
@@ -59,8 +59,8 @@ module.exports = {
         message: {
           Status: "Login Successful",
           data: response[0],
-          result: "IMPLEMENTED "
-        }
+          result: "IMPLEMENTED ",
+        },
       });
     }
     //console.log('req.user:',req.user);
@@ -71,5 +71,5 @@ module.exports = {
     } else {
       res.status(200).json({ Status: "Login Successful" });
     }
-  }
+  },
 };
