@@ -20,13 +20,17 @@ db = mongoose.connect(
   `mongodb+srv://${config["userid"]}:${config["password"]}@${config["cluster"]}/${config["dbname"]}?retryWrites=true&w=majority`,
   options,
   function (error) {
-    if (error) console.log(error);
-    else console.log("connected to atlas mongo");
-  } || `mongodb://localhost:27017/${config["dbname"]}`,
-  options,
-  function (error) {
-    if (error) console.log(error);
-    else console.log("connected to local mongodb");
+    if (error) {
+      console.log(error);
+      mongoose.connect(
+        `mongodb://localhost:27017/${config["dbname"]}`,
+        options,
+        function (error) {
+          if (error) console.log(error);
+          else console.log("connected to local mongodb");
+        }
+      );
+    } else console.log("connected to atlas mongo");
   }
 );
 
