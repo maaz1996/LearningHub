@@ -21,7 +21,7 @@
     "express-promise-router": "^3.0.3",
     "express-session": "^1.16.2",
     "joi": "^14.3.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.6.9",
     "mongoose-type-url": "^1.0.6",
     "morgan": "^1.9.1",
